@@ -11,11 +11,12 @@ class BasePlayer:
 
     def attack(self , obj)-> None:
         if obj.team != self.team:
-            obj.hp -= self.critical()
+            damage = self.critical()
+            obj.hp -= damage 
+            print(f"{self.name} attacked {obj.name} and dealt {damage} damage. ")
 
-    def die(self):
-        print(f"{self.name} öldü...")
-        del self
+    def immortal(self):
+         return self.hp > 0
 
     def critical(self) -> float:
          critical_rate = self.power * random.randint(1,3)
@@ -37,7 +38,7 @@ class Support(BasePlayer):
     def selfHeal(self):
          self.hp += self.healing_power * self.level
 
-class Soldier(BasePlayer):
+class Soldier(BasePlayer): #Soldier
      hp = 300
      power = 30
          
