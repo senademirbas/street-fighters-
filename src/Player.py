@@ -37,7 +37,7 @@ class Support(BasePlayer):
     def selfHeal(self):
          self.hp += self.healing_power * self.level
 
-class Solider(BasePlayer):
+class Soldier(BasePlayer):
      hp = 300
      power = 30
          
